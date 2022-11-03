@@ -1,26 +1,28 @@
 // fun_ptr.cpp -- pointers to functions
 #include <iostream>
-double betsy(int);
-double pam(int);
+using namespace std;
 
-// second argument is pointer to a type double function that
-// takes a type int argument
-void estimate(int lines, double (*pf)(int));
+double betsy(int lns);
+double pam(int lns);
+void estimate(int lines, double (*pf)(int lns));
 
 int main()
 {
-    using namespace std;
     int code;
-
     cout << "How many lines of code do you need? ";
     cin >> code;
     cout << "Here's Betsy's estimate:\n";
-    estimate(code, betsy);
+    estimate(code, betsy);  // the function name is its address
     cout << "Here's Pam's estimate:\n";
     estimate(code, pam);
-    // cin.get();
-    // cin.get();
     return 0;
+}
+
+void estimate(int lines, double (*pf)(int lns))
+{
+
+    cout << lines << " lines will take ";
+    cout << (*pf)(lines) << " hour(s)\n";
 }
 
 double betsy(int lns)
@@ -33,9 +35,3 @@ double pam(int lns)
     return 0.03 * lns + 0.0004 * lns * lns;
 }
 
-void estimate(int lines, double (*pf)(int))
-{
-    using namespace std;
-    cout << lines << " lines will take ";
-    cout << (*pf)(lines) << " hour(s)\n";
-}

@@ -5,7 +5,7 @@ int main()
     using namespace std;
     cout << "What year was your house built?\n";
     int year;
-    cin >> year;
+    (cin >> year).get(); // the bracket returns a cin object
     // cin.get();
     cout << "What is its street address?\n";
     char address[80];

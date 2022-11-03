@@ -1,6 +1,7 @@
 //strc_ref.cpp -- using structure references
 #include <iostream>
 #include <string>
+
 struct free_throws
 {
     std::string name;
@@ -22,26 +23,29 @@ int main()
     free_throws five = {"Long Long", 6, 14};
     free_throws team = {"Throwgoods", 0, 0};
     free_throws dup;
+
     set_pc(one);
     display(one);
     accumulate(team, one);
     display(team);
-// use return value as argument
-    display(accumulate(team, two));
+    
+    // use return value as argument
+    display(accumulate(team, two)); // accumulate returns team, and display process team
     accumulate(accumulate(team, three), four);
     display(team);
-// use return value in assignment
-    dup = accumulate(team,five);
+
+    // use return value in assignment
+    dup = accumulate(team, five); // copy the content of team to dup
     std::cout << "Displaying team:\n";
     display(team);
     std::cout << "Displaying dup after assignment:\n";
     display(dup);
     set_pc(four);
-// ill-advised assignment
-    accumulate(dup,five) = four;
+
+    // ill-advised assignment
+    accumulate(dup, five) = four; // overwrites the content of dup by the content of four
     std::cout << "Displaying dup after ill-advised assignment:\n";
     display(dup);
-    // std::cin.get();
     return 0;
 }
 
@@ -53,10 +57,11 @@ void display(const free_throws & ft)
     cout << "Attempts: " << ft.attempts << '\t';
     cout << "Percent: " << ft.percent << '\n';
 }
+
 void set_pc(free_throws & ft)
 {
     if (ft.attempts != 0)
-        ft.percent = 100.0f *float(ft.made)/float(ft.attempts);
+        ft.percent = 100.0f * float(ft.made) / float(ft.attempts);
     else
         ft.percent = 0;
 }
@@ -66,5 +71,5 @@ free_throws & accumulate(free_throws & target, const free_throws & source)
     target.attempts += source.attempts;
     target.made += source.made;
     set_pc(target);
-    return target;
+    return target; // target is a reference, so here we return a reference, that is team
 }

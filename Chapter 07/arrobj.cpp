@@ -2,39 +2,40 @@
 #include <iostream>
 #include <array>
 #include <string>
-const int Seasons = 4;
-const std::array<std::string, Seasons> Snames =
-    {"Spring", "Summer", "Fall", "Winter"};
+using namespace std;
 
-void fill(std::array<double, Seasons> * pa);
-void show(std::array<double, Seasons> da);
+const int Seasons = 4;
+const array<string, Seasons> Snames = {"Spring", "Summer", "Fall", "Winter"};
+
+void fill(array<double, Seasons> *pa);
+void show(const array<double, Seasons> *pa);
+
 int main()
 {
-    std::array<double, 4> expenses;
+    array<double, 4> expenses;
     fill(&expenses);
-    show(expenses);
-    // std::cin.get();
-    // std::cin.get();
+    show(&expenses);
     return 0;
 }
 
-void fill(std::array<double, Seasons> * pa)
+void fill(array<double, Seasons> *pa)
 {
     for (int i = 0; i < Seasons; i++)
     {
-        std::cout << "Enter " << Snames[i] << " expenses: ";
-        std::cin >> (*pa)[i];
+        cout << "Enter " << Snames[i] << " expenses: ";
+        cin >> (*pa)[i];
     }
 }
 
-void show(std::array<double, Seasons> da)
+void show(const array<double, Seasons> *pa)
 {
-    double total = 0.0;
-    std::cout << "\nEXPENSES\n";
-    for (int i = 0; i < Seasons; i++)
-    {
-        std::cout << Snames[i] << ": $" << da[i] << '\n';
-        total += da[i];
+    double sum_cost = 0;
+    for (int i = 0; i < Seasons; i++){
+        cout << Snames[i] << ": " << (*pa)[i] << endl;
+        sum_cost += (*pa)[i];
     }
-    std::cout << "Total: $" << total << '\n';
+    cout << sum_cost << endl;
 }
+
+
+

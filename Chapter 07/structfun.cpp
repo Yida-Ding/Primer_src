@@ -1,31 +1,29 @@
 // strctfun.cpp -- functions with a structure argument
 #include <iostream>
 #include <cmath>
+using namespace std;
 
-// structure declarations
 struct polar
 {
     double distance;      // distance from origin
     double angle;         // direction from origin
 };
+
 struct rect
 {
-    double x;             // horizontal distance from origin
-    double y;             // vertical distance from origin
+    double x;
+    double y;
 };
 
-// prototypes
 polar rect_to_polar(rect xypos);
 void show_polar(polar dapos);
 
 int main()
 {
-    using namespace std;
     rect rplace;
     polar pplace;
-
     cout << "Enter the x and y values: ";
-    while (cin >> rplace.x >> rplace.y)  // slick use of cin
+    while (cin >> rplace.x >> rplace.y)
     {
         pplace = rect_to_polar(rplace);
         show_polar(pplace);
@@ -36,23 +34,19 @@ int main()
 }
 
 // convert rectangular to polar coordinates
-polar rect_to_polar(rect xypos)
+polar rect_to_polar(rect rplace)
 {
-    using namespace std;
-    polar answer;
-
-    answer.distance =
-        sqrt( xypos.x * xypos.x + xypos.y * xypos.y);
-    answer.angle = atan2(xypos.y, xypos.x);
-    return answer;      // returns a polar structure
+    polar pplace;
+    pplace.distance = sqrt(pow(rplace.x, 2) + pow(rplace.y, 2));
+    pplace.angle = atan2(rplace.y, rplace.x);
+    return pplace;
 }
 
 // show polar coordinates, converting angle to degrees
 void show_polar (polar dapos)
 {
-    using namespace std;
-    const double Rad_to_deg = 57.29577951;
 
+    const double Rad_to_deg = 57.29577951;
     cout << "distance = " << dapos.distance;
     cout << ", angle = " << dapos.angle * Rad_to_deg;
     cout << " degrees\n";

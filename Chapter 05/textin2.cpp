@@ -1,5 +1,6 @@
 // textin2.cpp -- using cin.get(char)
 #include <iostream>
+
 int main()
 {
     using namespace std;
@@ -15,9 +16,6 @@ int main()
         cin.get(ch);    // use it again
     }
     cout << endl << count << " characters read\n";
-// get rid of rest of line
-    // while (cin.get() != '\n')
-    //    ;
-    //cin.get();
+
     return 0; 
 }

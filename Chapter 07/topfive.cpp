@@ -2,8 +2,11 @@
 #include <iostream>
 #include <string>
 using namespace std;
-const int SIZE = 5;
+
+const int SIZE = 1;
 void display(const string sa[], int n);
+
+
 int main()
 {
     string list[SIZE];     // an array holding 5 string object
@@ -11,13 +14,12 @@ int main()
     for (int i = 0; i < SIZE; i++)
     {
         cout << i + 1 << ": ";
-        getline(cin,list[i]);
+        getline(cin, list[i]); // get whole line of input, not afraid of blank
+        // cin >> list[i];
     }
 
     cout << "Your list:\n";
     display(list, SIZE);
-    // cin.get();
-
 	return 0; 
 }
 

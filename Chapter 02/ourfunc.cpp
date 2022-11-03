@@ -1,10 +1,10 @@
 // ourfunc.cpp -- defining your own function
 #include <iostream>
+using namespace std;
 void simon(int);    // function prototype for simon()
 
 int main()
 {
-    using namespace std;
     simon(3);       // call the simon() function
     cout << "Pick an integer: ";
     int count;

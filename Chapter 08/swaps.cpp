@@ -1,8 +1,11 @@
 // swaps.cpp -- swapping with references and with pointers
 #include <iostream>
-void swapr(int & a, int & b);   // a, b are aliases for ints
-void swapp(int * p, int * q);   // p, q are addresses of ints
+
+
+void swapr(int &a, int &b);   // a, b are aliases for ints
+void swapp(int *p, int *q);   // p, q are addresses of ints
 void swapv(int a, int b);       // a, b are new variables
+
 int main()
 {
     using namespace std;
@@ -30,7 +33,7 @@ int main()
     return 0; 
 }
 
-void swapr(int & a, int & b)    // use references
+void swapr(int &a, int &b)    // use references
 {
     int temp;
 
@@ -39,10 +42,9 @@ void swapr(int & a, int & b)    // use references
     b = temp;
 }
 
-void swapp(int * p, int * q)    // use pointers
+void swapp(int *p, int *q)    // use pointers
 {
     int temp;
-
     temp = *p;      // use *p, *q for values of variables
     *p = *q;
     *q = temp;

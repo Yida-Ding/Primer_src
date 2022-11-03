@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 string version1(const string & s1, const string & s2);
 const string & version2(string & s1, const string & s2);  // has side effect
 const string & version3(string & s1, const string & s2);  // bad design
@@ -29,15 +30,12 @@ int main()
     result = version3(input, "@@@");
     cout << "Your string enhanced: " << result << endl;
     cout << "Your original string: " << input << endl;
-	// cin.get();
-	// cin.get();
     return 0;
 }
 
 string version1(const string & s1, const string & s2)
 {
     string temp;
-
     temp = s2 + s1 + s2;
     return temp;
 }

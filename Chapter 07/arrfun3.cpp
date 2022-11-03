@@ -29,8 +29,6 @@ int main()
         show_array(properties, size);
     }
     cout << "Done.\n";
-    // cin.get();
-    // cin.get();
     return 0;
 }
 
@@ -48,14 +46,14 @@ int fill_array(double ar[], int limit)
             cin.clear();
             while (cin.get() != '\n')
                 continue;
-           cout << "Bad input; input process terminated.\n";
-           break;
+            cout << "Bad input; input process terminated.\n";
+            break;
         }
         else if (temp < 0)     // signal to terminate
             break;
         ar[i] = temp;
     }
-    return i;
+    return i;image.png
 }
 
 // the following function can use, but not alter,

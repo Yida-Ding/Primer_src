@@ -9,13 +9,14 @@ const int LIMIT = 5;
 int main()
 {
     ofstream fout;
-    const char * fn = "ep-data.txt";
+    const char * fn = "data/ep-data.txt";
     fout.open(fn);
     if (!fout.is_open())
     {
         cout << "Can't open " << fn << ". Bye.\n";
         exit(EXIT_FAILURE);
     }
+
     double objective;
     cout << "Enter the focal length of your "
             "telescope objective in mm: ";
@@ -31,8 +32,6 @@ int main()
     file_it(fout, objective, eps, LIMIT);
     file_it(cout, objective, eps, LIMIT);
     cout << "Done\n";
-    // cin.get();
-    // cin.get();
     return 0;
 }
 
