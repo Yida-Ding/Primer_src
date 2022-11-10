@@ -2,6 +2,7 @@
 #include <iostream>
 #include "coordin.h" // structure templates, function prototypes
 using namespace std;
+
 int main()
 {
     rect rplace;
@@ -15,12 +16,6 @@ int main()
         cout << "Next two numbers (q to quit): ";
     }
     cout << "Bye!\n";
-// keep window open in MSVC++
-/*
-    cin.clear();
-    while (cin.get() != '\n')
-        continue;
-    cin.get();
-*/
+
     return 0; 
 }

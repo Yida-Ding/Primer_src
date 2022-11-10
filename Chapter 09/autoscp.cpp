@@ -1,6 +1,8 @@
 // autoscp.cpp -- illustrating scope of automatic variables
 #include <iostream>
+
 void oil(int x);
+
 int main()
 {
     using namespace std;

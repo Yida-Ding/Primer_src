@@ -1,5 +1,6 @@
 // static.cpp -- using a static local variable
 #include <iostream>
+
 // constants
 const int ArSize = 10;
 
@@ -14,7 +15,7 @@ int main()
 
     cout << "Enter a line:\n";
     cin.get(input, ArSize);
-    while (cin)
+    while (cin) // if no input
     {
         cin.get(next);
         while (next != '\n')    // string didn't fit!
@@ -24,13 +25,6 @@ int main()
         cin.get(input, ArSize);
     }
     cout << "Bye\n";
-// code to keep window open for MSVC++
-/*
-cin.clear();
-    while (cin.get() != '\n')
-        continue;
-    cin.get();
-*/
     return 0;
 }
 

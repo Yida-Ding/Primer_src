@@ -1,6 +1,7 @@
 // external.cpp -- external variable
 // compile with support.cpp
 #include <iostream>
+
 // external variable
 double warming = 0.3;       // warming defined
 
@@ -16,6 +17,5 @@ int main()                  // uses global variable
     cout << "Global warming is " << warming << " degrees.\n";
     local();                // call function with local warming
     cout << "Global warming is " << warming << " degrees.\n";
-    // cin.get();
     return 0;
 }

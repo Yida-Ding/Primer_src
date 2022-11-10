@@ -1,11 +1,8 @@
 // support.cpp -- use external variable
 // compile with external.cpp
+
 #include <iostream>
 extern double warming;  // use warming from another file
-
-// function prototypes
-void update(double dt);
-void local();
 
 using std::cout;
 void update(double dt)      // modifies global variable
@@ -18,11 +15,10 @@ void update(double dt)      // modifies global variable
 
 void local()                // uses local variable
 {
+    // NOTE: this is a definition, not a declaration, and this is an auto/local variable
     double warming = 0.8;   // new variable hides external one
 
     cout << "Local warming = " << warming << " degrees.\n";
-        // Access global variable with the
-        // scope resolution operator
-    cout << "But global warming = " << ::warming;
+    cout << "But global warming = " << ::warming;   // Access global variable with the scope resolution operator
     cout << " degrees.\n";
 }
